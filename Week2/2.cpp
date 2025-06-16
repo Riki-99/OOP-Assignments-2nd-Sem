@@ -9,7 +9,7 @@ int feetToInches()
     int ft;
     cout<<"Enter feet: ";
     cin>>ft;
-    cout<<"Equivalent inches: " << ft*l12;
+    cout<<"Equivalent inches: " << ft*12;
 }
 
 void feetToInches(int &ft)

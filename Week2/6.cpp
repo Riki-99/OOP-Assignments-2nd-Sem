@@ -8,12 +8,12 @@
 
 //Programmer Rs. 18000/m
 
-Make a function that takes two arguments; one salary and the other increment. Use proper default argument.
+//Make a function that takes two arguments; one salary and the other increment. Use proper default argument.
 
 #include <iostream>
 using namespace std;
 
-int modifiedSalary(int salary = 10000, int increment = 9)
+int modifiedSalary(int salary = 10000, int increment = 12)
 {
     return salary + increment*salary/100;
 }
@@ -25,8 +25,8 @@ int main(void)
     int saSalary = 24000;
     int programmerSalary = 18000;
     cout<<"CEO's salary: "<<modifiedSalary(ceoSalary, 9)<<endl;
-    cout<<"IO's salary: "<<modifiedSalary(ioSalary, 9)<<endl;
-    cout<<"System Analyst's salary: "<<modifiedSalary(saSalary, 9)<<endl;
-    cout<<"Programmer's salary: "<<modifiedSalary(programmerSalary, 9)<<endl;
+    cout<<"IO's salary: "<<modifiedSalary(ioSalary, 10)<<endl;
+    cout<<"System Analyst's salary: "<<modifiedSalary(saSalary)<<endl;
+    cout<<"Programmer's salary: "<<modifiedSalary(programmerSalary)<<endl;
     return 0;
 }

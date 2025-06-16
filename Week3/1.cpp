@@ -4,21 +4,37 @@
 using namespace std;
 
 class Celsius{
-    public:
+    private:
     float value;
+    public:
     float toFahrenheit(float c)
         {
             return 9*c/5 + 32;
         }
+    void input()
+    {
+        cin>>value;
+    }
+    float val(){
+        return value;
+    }
 };
 
 class Fahrenheit{
-    public:
+    private:
     float value;
+    public:
     float toCelsius(float f)
         {
             return (f-32) * 5/9;
         }
+        void input()
+    {
+        cin>>value;
+    }
+    float val(){
+        return value;
+    }
 };
 
 int main(void)
@@ -26,10 +42,10 @@ int main(void)
     Celsius cel;
     Fahrenheit fah;
     cout<<"Enter Fahrenheit value: ";
-    cin>>fah.value;
-    cout<<"Celsius equivalent is : " <<fah.toCelsius(fah.value)<<endl;
+    fah.input();
+    cout<<"Celsius equivalent is : " <<fah.toCelsius(fah.val())<<endl;
     cout<<"Enter Celsius value: ";
-    cin>>cel.value;
-    cout<<"Fahrenheit equivalent is : "<<cel.toFahrenheit(cel.value)<<endl;
+    cel.input();
+    cout<<"Fahrenheit equivalent is : "<<cel.toFahrenheit(cel.val())<<endl;
     return 0;
 }
