@@ -13,14 +13,12 @@ class dynamic{
         dynamic(){
             arr = new char[40];
             strcpy(arr,"Engineers are");
-            cout<<arr<<endl;
         }
 
         dynamic(int x)
         {
             arr = new char[40];
             strcpy(arr, " Creatures of logic.");
-            cout<<arr<<endl;
         }
 
         ~dynamic()
@@ -29,14 +27,15 @@ class dynamic{
         }
 
         // Use by reference so that new constructor is not called in.
-        void join(dynamic &ch)
+        void join(dynamic &c1, dynamic &ch)
         {
             char *c = ch.arr;
+            char *cdest = c1.arr;
             char* output = new char[80];
             int len = 0, i = 0;
-            while(arr[len] != '\0')
+            while(cdest[len] != '\0')
                 {
-                    output[len] = arr[len];
+                    output[len] = cdest[len];
                     len++;
                 }
             while(c[i] != '\0')
@@ -55,6 +54,6 @@ int main(void)
 {
     dynamic str1;
     dynamic str2(0);
-    str1.join(str2);
+    str1.join(str1, str2);
     return 0;
 }
