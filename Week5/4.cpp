@@ -17,9 +17,9 @@ class Date{
         Date(int y, int m, int d) : year(y),  month(m), day(d){}
         void operator ++(int){
             day++;
-            if (day > m[month-1].days && !(month == 2 && isLeap(year) && day==29))
+            if(isLeap(year)) m[1].days = 29;
+            if (day > m[month-1].days)
             {
-                if(month == 2 && isLeap(year)) m[1].days = 29;
                 day-=m[month-1].days;
                 month++;
             }
@@ -32,9 +32,29 @@ class Date{
             m[1].days = 28;
         }
 
+        void operator --(int){
+            day--;
+            if(isLeap(year)) m[1].days = 29;
+            if (day <= 0)
+            {
+                int prevMonthCt; 
+                if(month-2 >= 0 && month-2 <=11) prevMonthCt = m[(month-1)-1].days;
+                if(month-2 < 0) prevMonthCt = m[11].days;
+                day+=prevMonthCt;
+                month--;
+            }
+
+            if (month<=0)
+            {
+                year--;
+                month+=12;
+            }
+            m[1].days = 28;
+        }
+
         void display()
         {
-            cout<<year<<"/"<<month<<"/"<<day;
+            cout<<year<<"/"<<month<<"/"<<day<<endl;
         }
         bool isLeap(int y)
         {
@@ -66,7 +86,9 @@ int main(void)
 
 
 
-    Date d1(2020,2,28);
+    Date d1(2021,3,1);
+    d1--;
+    d1.display();
     d1++;
     d1.display();
     return 0;    
