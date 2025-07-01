@@ -9,20 +9,22 @@
 // Make least possible classes to demonstrate all the above in a single program without conflict.
 
 #include <iostream>
+#include <conio.h>
 using namespace std;
 
 class twoD;
+class vector2d;
 
 class addition{
     public:
-        twoD operate(twoD c1, twoD c2);
+        twoD operate(twoD c1, vector2d v1);
 };
 
 class operations{
     public:
-        twoD diff(twoD c1, twoD c2);
-        twoD mul(twoD c, int factor);
-        twoD divide(twoD c, float factor);;
+        twoD diff(twoD c1, vector2d);
+        twoD mul(twoD c, vector2d);
+        twoD divide(twoD c, vector2d);
         void display(twoD);
 };
 
@@ -32,28 +34,38 @@ class twoD{
         float y;
     public: 
     twoD(float x1, float y1) : x(x1), y(y1){};
-    friend twoD addition::operate(twoD, twoD);
+    friend twoD addition::operate(twoD, vector2d);
     friend operations;
 };
 
-twoD addition::operate(twoD c1, twoD c2)
+class vector2d{
+	private:
+		float x;
+		float y;
+	public:
+		vector2d(float x1, float y1) : x(x1), y(y1){};
+		friend twoD addition::operate(twoD, vector2d);
+		friend operations;	
+};
+
+twoD addition::operate(twoD c, vector2d v)
 {
-            return twoD (c1.x + c2.x, c1.y + c2.y);
+            return twoD (c.x + v.x, c.y + v.y);
 }
 
-twoD operations::diff(twoD c1, twoD c2)
+twoD operations::diff(twoD c, vector2d v)
 {
-    return twoD (c1.x - c2.x, c1.y - c2.y);
+    return twoD (c.x - v.x, c.y - v.y);
 }
 
-twoD operations::mul(twoD c, int f)
+twoD operations::mul(twoD c, vector2d v)
 {
-    return twoD (f*c.x, f*c.y);
+    return twoD (v.x*c.x, v.y*c.y);
 }
 
-twoD operations::divide(twoD c, float f)
+twoD operations::divide(twoD c, vector2d v)
 {
-    return twoD (c.x/f, c.y/f);
+    return twoD (c.x/v.y, c.y/v.y);
 }
 
 void operations::display(twoD c)
@@ -65,20 +77,20 @@ void operations::display(twoD c)
 int main(void)
 {
     twoD c1(1,2);
-    twoD c2(3,4);
+    vector2d v1(3,4);
     addition a;
     operations o;
 
-    cout<<"c1 + c2 : ";
-    o.display(a.operate(c1,c2));
+    cout<<"c1 + v1 : ";
+    o.display(a.operate(c1,v1));
 
-    cout<<"c1 - c2 : ";
-    o.display(o.diff(c1,c2));
+    cout<<"c1 - v1 : ";
+    o.display(o.diff(c1,v1));
 
-    cout<<"c1 * 3 : ";
-    o.display(o.mul(c1,3));
+    cout<<"c1 * v1 : ";
+    o.display(o.mul(c1,v1));
 
-    cout<<"c2 / 2 : ";
-    o.display(o.divide(c2,3.0));
-
+    cout<<"c2 / v2 : ";
+    o.display(o.divide(c1,v1));
+    return 0;
 }

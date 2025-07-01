@@ -15,7 +15,8 @@ class Date{
         int day, month, year;
     public:
         Date(int y, int m, int d) : year(y),  month(m), day(d){}
-        void operator ++(int){
+        Date(){};
+        void addCode(){
             day++;
             if(isLeap(year)) m[1].days = 29;
             if (day > m[month-1].days)
@@ -32,7 +33,7 @@ class Date{
             m[1].days = 28;
         }
 
-        void operator --(int){
+        void subCode(){
             day--;
             if(isLeap(year)) m[1].days = 29;
             if (day <= 0)
@@ -51,6 +52,33 @@ class Date{
             }
             m[1].days = 28;
         }
+        
+        Date operator ++(int)
+        {
+        	Date x = *this;
+        	addCode();
+        	return x;
+		}
+		
+		Date operator --(int)
+		{
+			Date d = *this;
+			subCode();
+			return d;
+		}
+		
+		Date operator ++()
+		{
+			addCode();
+			return *this;
+			
+		}
+		
+		Date operator --()
+		{
+			subCode();
+			return *this;
+		}
 
         void display()
         {
