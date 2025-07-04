@@ -33,25 +33,25 @@ class Date{
             m[1].days = 28;
         }
 
-        void subCode(){
-            day--;
-            if(isLeap(year)) m[1].days = 29;
-            if (day <= 0)
-            {
-                int prevMonthCt; 
-                if(month-2 >= 0 && month-2 <=11) prevMonthCt = m[(month-1)-1].days;
-                if(month-2 < 0) prevMonthCt = m[11].days;
-                day+=prevMonthCt;
-                month--;
-            }
+        // void subCode(){
+        //     day--;
+        //     if(isLeap(year)) m[1].days = 29;
+        //     if (day <= 0)
+        //     {
+        //         int prevMonthCt; 
+        //         if(month-2 >= 0 && month-2 <=11) prevMonthCt = m[(month-1)-1].days;
+        //         if(month-2 < 0) prevMonthCt = m[11].days;
+        //         day+=prevMonthCt;
+        //         month--;
+        //     }
 
-            if (month<=0)
-            {
-                year--;
-                month+=12;
-            }
-            m[1].days = 28;
-        }
+        //     if (month<=0)
+        //     {
+        //         year--;
+        //         month+=12;
+        //     }
+        //     m[1].days = 28;
+        // }
         
         Date operator ++(int)
         {
@@ -60,12 +60,12 @@ class Date{
         	return x;
 		}
 		
-		Date operator --(int)
-		{
-			Date d = *this;
-			subCode();
-			return d;
-		}
+		// Date operator --(int)
+		// {
+		// 	Date d = *this;
+		// 	subCode();
+		// 	return d;
+		// }
 		
 		Date operator ++()
 		{
@@ -74,11 +74,11 @@ class Date{
 			
 		}
 		
-		Date operator --()
-		{
-			subCode();
-			return *this;
-		}
+		// Date operator --()
+		// {
+		// 	subCode();
+		// 	return *this;
+		// }
 
         void display()
         {
@@ -115,7 +115,7 @@ int main(void)
 
 
     Date d1(2021,3,1);
-    d1--;
+    // d1--;
     d1.display();
     d1++;
     d1.display();
