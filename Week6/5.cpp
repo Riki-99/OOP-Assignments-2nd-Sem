@@ -1,3 +1,6 @@
+//Write a base class that asks the user to enter a complex number, and make a derived class that adds the complex number of its own to the base. Finally, make a third class that is a friend of derived and calculate the difference between the base complex number and its own complex number.
+
+
 #include <iostream>
 using namespace std;
 
