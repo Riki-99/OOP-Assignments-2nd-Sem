@@ -45,7 +45,7 @@ standard::operator freedom(){
 int main(void)
 {
     float ft, in;
-    cout<<"Enter float, inches : "<<endl;
+    cout<<"Enter feet, inches : "<<endl;
     cin>>ft;
     cin>>in;
     freedom f1(ft, in);
