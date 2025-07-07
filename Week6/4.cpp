@@ -11,6 +11,7 @@ class person{
     public:
         void inputCredentials(){
             cout<<"Enter name : ";
+            fflush(stdin);
             cin>>name;
             cout<<"Enter age: ";
             cin>>age;
@@ -53,11 +54,10 @@ int main(void)
 
     cout<<"For employee: "<<endl;
     e1.inputPanId();
-    
 
-    cout<<(p1.Addr()- p2.Addr());
-    cout<<(s1.Addr() - s2.Addr());
-    cout<<(e1.Addr() - e2.Addr());
+    cout<<"Size of person: " <<(sizeof(p1.Addr()- p2.Addr()))<<endl;
+    cout<<"Size of student: " <<(sizeof(s1.Addr() - s2.Addr()))<<endl;
+    cout<<"Size of employee: " <<(sizeof(e1.Addr() - e2.Addr()))<<endl;
 
     return 0;
 }

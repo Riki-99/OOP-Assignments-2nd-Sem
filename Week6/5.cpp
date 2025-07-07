@@ -43,7 +43,12 @@ comp1 comp2friend::diff(comp1 c1, comp2 c2)
         }
 
 int main (void){
-    comp1 c1(1,2);
+    float real, imag;
+    cout<<"Enter real part: ";
+    cin>>real;
+    cout<<"Enter imaginary part : ";
+    cin>>imag;
+    comp1 c1(real,imag);
     comp2 c2(3,4);
     comp2friend c3;
     c1 = c2.add(c1);
