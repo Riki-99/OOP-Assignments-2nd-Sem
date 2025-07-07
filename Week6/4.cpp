@@ -16,8 +16,8 @@ class person{
             cin>>age;
         }
 
-        void showAddr(){
-            cout<<"The address of this object is : " << this<<endl;
+        person* Addr(){
+            return this;
         }
 };
 
@@ -55,12 +55,9 @@ int main(void)
     e1.inputPanId();
     
 
-    p1.showAddr();
-    p2.showAddr();
-    s1.showAddr();
-    s2.showAddr();
-    e1.showAddr();
-    e2.showAddr();
+    cout<<(p1.Addr()- p2.Addr());
+    cout<<(s1.Addr() - s2.Addr());
+    cout<<(e1.Addr() - e2.Addr());
 
     return 0;
 }

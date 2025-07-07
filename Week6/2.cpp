@@ -4,11 +4,11 @@ using namespace std;
 
 class freedom;
 
-class imperial{
+class standard{
     private:
         float m, cm;
     public:
-        imperial(float m , float cm) : m(m), cm(cm){}
+        standard(float m , float cm) : m(m), cm(cm){}
         operator freedom();
 
         void display(){
@@ -21,12 +21,12 @@ class freedom{
         float feet, inch;
     public:
         freedom(float f, float i) : feet(f), inch(i){}
-        operator imperial(){
+        operator standard(){
             float totInch = feet * 12 + inch;
             float cm = totInch * 2.54;
             float m = int(cm/100);
             cm = cm - m * 100;
-            return imperial(m, cm);
+            return standard(m, cm);
         }
 
         void display(){
@@ -34,7 +34,7 @@ class freedom{
         }
 };
 
-imperial::operator freedom(){
+standard::operator freedom(){
       float cmTot = m * 100 + cm;
             float in = cmTot/2.54;
             float ft =   int(in/12);
@@ -49,14 +49,14 @@ int main(void)
     cin>>ft;
     cin>>in;
     freedom f1(ft, in);
-    cout<<"Eqv imperial value : "<<endl;
-    ((imperial)f1).display();
+    cout<<"Eqv standard value : "<<endl;
+    ((standard)f1).display();
 
     float cm, m;
     cout<<"Enter meters, centimeters : "<<endl;
     cin>>m;
     cin>>cm;
-    imperial i1(m, cm);
+    standard i1(m, cm);
     cout<<"Eqv freedom value : "<<endl;
     ((freedom)i1).display();
 
