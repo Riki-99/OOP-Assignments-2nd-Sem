@@ -27,11 +27,12 @@ int main(void)
     Car* cpt;
     Bike* bipt;
 
-    //Fails type downcast because v is not pointing to car but to bike
+    //Fails type downcast because v is not pointing to car but to bike  
     cpt = dynamic_cast<Car*>(v);
     //Gives valid address becuase v is pointing to Bike
     bipt = dynamic_cast<Bike*>(v);
 
     cout<<"cpt : " << cpt<<endl;
     cout<<"bipt : " << bipt<<endl;
+    return 0;
 }

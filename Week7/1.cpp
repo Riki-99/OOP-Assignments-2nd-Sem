@@ -102,4 +102,5 @@ int main(void)
     s[0]->display();
     s[1]->display();
     s[2]->display();
+    return 0;
 }

@@ -67,4 +67,5 @@ int main(void)
     Manager m;
         m.inputDetails();
         m.showDetails();
+    return 0;
 }
