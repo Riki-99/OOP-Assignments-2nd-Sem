@@ -11,10 +11,10 @@ class shape{
         shape(){
             name = "Trapezoid";
         }
-        ~shape(){
+        virtual ~shape(){
             cout<<"Shape destroyed"<<endl;
         }
-        virtual void calcArea(){
+        virtual void Area(){
             float a,b,h;
             cout<<"Enter values of a, b and h";
             cin>>a;
@@ -34,7 +34,7 @@ class circle : public shape{
         circle(){
             name = "Circle";
         }
-         void calcArea(){
+         void Area(){
             float r;
             cout<<"Enter radius : ";
             cin>>r;
@@ -42,7 +42,7 @@ class circle : public shape{
         }
 
           void display(){
-            calcArea();
+            Area();
             cout<<"Overridden by circle"<<endl;
             shape::display();
           }
@@ -56,7 +56,7 @@ class rectangle : public shape{
         rectangle(){
             name = "Rectangle";
         }
-         void calcArea(){
+         void Area(){
             float l,b;
             cout<<"Enter length and breadth : ";
             cin>>l;
@@ -65,7 +65,7 @@ class rectangle : public shape{
         }
 
           void display(){
-            calcArea();
+            Area();
             cout<<"Overridden by rectangle"<<endl;
             shape::display();
           }
@@ -76,13 +76,13 @@ class rectangle : public shape{
 
 class trapezoid : public shape{
     public:
-         void calcArea(){
+         void Area(){
             cout<<"Overridden trapezoid"<<endl;
-            shape::calcArea();
+            shape::Area();
         }
 
           void display(){
-            calcArea();
+            Area();
             cout<<"Overridden"<<endl;
             shape::display();
           }
