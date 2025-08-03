@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cmath>
 using namespace std;
 
 class complex{
@@ -13,7 +14,8 @@ class complex{
 };
 
 ostream& operator << (ostream& ostr, complex &c){
-    return ostr<<c.real<<" + "<<c.imag<<"i"<<endl;
+    string sign = (c.imag<0)?" - ":" + ";
+    return ostr<<c.real<<sign<<"i"<<abs(c.imag);
 };
 
 istream& operator >> (istream& istr, complex &c)

@@ -31,7 +31,9 @@ class entry{
             total = e.total;
         }
         void display(){
-            cout<<setw(15)<<uppercase<<name<<" "<<setw(7)<<setprecision(2)<<fixed<<price<< " "<<setw(3)<<quantity<< " " <<setw(8)<<total<<endl;
+            // Edited
+            cout.setf(ios::fixed, ios::floatfield);
+            cout<<setw(15)<<uppercase<<name<<" "<<setw(7)<<setprecision(2)<<price<< " "<<setw(3)<<quantity<< " " <<setw(8)<<total<<endl;
         }
 
         float getTotal(){
@@ -59,6 +61,7 @@ class record{
                 entries[i].display();
                 total+=entries[i].getTotal();
             }
+            cout.setf(ios::left, ios::adjustfield); // Edited
             cout<<setw(30)<<"Total :"<<total<<endl;
         }
 };
